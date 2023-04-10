@@ -11,6 +11,7 @@ public class ConsoleExercises {
 //  Explore the Scanner Class
 //      Prompt, Input, Print
         Scanner scanner = new Scanner(System.in);
+        scanner.useDelimiter("\n");
 
         System.out.println("Enter a number:");
         int userInput = scanner.nextInt();
