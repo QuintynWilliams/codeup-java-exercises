@@ -59,17 +59,59 @@ public class ControlFlowExercises {
 
 //      3. Display a table of powers.
         Scanner sc = new Scanner(System.in);
-        System.out.println("What number would you like to go up to?");
-        int userInput = sc.nextInt();
+//        System.out.println("What number would you like to go up to?");
+//        int userInput = sc.nextInt();
+//
+//        System.out.println("number | squared | cubed");
+//        System.out.println("------ | ------- | -----");
+//
+//        for (int i = 1; i <= userInput; i++) {
+//            int square = i * i;
+//            int cube = i * i * i;
+//            System.out.printf("%-6s | %-7s | %-6s \n", i, square, cube);
+//        }
 
-        System.out.println("number | squared | cubed");
-        System.out.println("------ | ------- | -----");
+//      4. Convert Num to Letter Grade
+        System.out.println("Enter grade (0 - 100):");
+        int userGrade = sc.nextInt();
+        String userLetter;
+//                    if (100 - userGrade <= 1) {
+//                magnus = '+';
+//            } else if (100 - userGrade <= 10) {
+//                magnus = '-';
 
-        for (int i = 1; i <= userInput; i++) {
-            int square = i * i;
-            int cube = i * i * i;
-            System.out.printf("%-6s | %-7s | %-6s \n", i, square, cube);
+        if (userGrade >= 88) {
+            userLetter = "A";
+            if (userGrade >= 99) {
+                userLetter = "A+";
+            } else if (userGrade <= 87) {
+                userLetter = "A-";
+            }
+        } else if (userGrade < 88 && userGrade >= 80) {
+            userLetter = "B";
+            if (userGrade >= 86) {
+                userLetter = "B+";
+            } else if (userGrade <= 81) {
+                userLetter = "B-";
+            }
+        } else if (userGrade < 80 && userGrade >= 67) {
+            userLetter = "C";
+            if (userGrade >= 78) {
+                userLetter = "C+";
+            } else if (userGrade <= 68) {
+                userLetter = "C-";
+            }
+        } else if (userGrade < 67 && userGrade >= 60) {
+            userLetter = "D";
+            if (userGrade >= 65) {
+                userLetter = "D+";
+            } else if (userGrade <= 61) {
+                userLetter = "D-";
+            }
+        } else {
+            userLetter = "F";
         }
 
+        System.out.println(userLetter);
     }
 }
