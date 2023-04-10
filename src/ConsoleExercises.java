@@ -9,6 +9,7 @@ public class ConsoleExercises {
         System.out.printf("The value of pi is approximately %s\n", pi);
 
 //  Explore the Scanner Class
+//      Prompt, Input, Print
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Enter a number:");
@@ -31,7 +32,8 @@ public class ConsoleExercises {
 
         System.out.println(userSentence);
 
-//  Explore the Scanner Class
+//  Calculate the perimeter and area of rooms
+//      BONUS: Allow decimal entries for input/calculations
         System.out.println("Enter room length:");
         float lengthRoom = scanner.nextFloat();
         scanner.nextLine();
