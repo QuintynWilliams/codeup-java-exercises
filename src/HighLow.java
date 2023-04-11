@@ -8,6 +8,12 @@ public class HighLow {
         highLow(house, getInteger(), 1, 10);
     }
 
+    public static void clearConsole () {
+        for (int i = 0; i < 50; i++) {
+            System.out.println();
+        }
+    }
+
     public static int getInteger() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Guess the House Roll [between 1-100]");
@@ -33,16 +39,17 @@ public class HighLow {
     }
 
     public static void highLow(int x, int y, int z, int limit) {
-        if (x > y) {
-            System.out.println("HIGHER " + (limit - 1) + " guesses left. \n");
+         if (limit == 1) {
+            System.out.println("House wins, the number is " + x);
+        } else if (x > y) {
+            System.out.println("HIGHER   |   " + (limit - 1) + " guesses left. \n");
             highLow(x, getInteger(), z + 1, limit - 1);
         } else if (x < y) {
-            System.out.println("LOWER " + (limit - 1) + " guesses left. \n");
+            System.out.println("LOWER    |   " + (limit - 1) + " guesses left. \n");
             highLow(x, getInteger(), z + 1, limit - 1);
-        } else {
-            System.out.println("CONGRATS\n" + "That took " + z + " guesses");
+        } else if (x == y){
+            System.out.println("CONGRATS |   " + "Player wins with " + z + " turns");
         }
-
     }
 
 }
