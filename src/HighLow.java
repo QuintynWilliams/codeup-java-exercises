@@ -4,9 +4,8 @@ import java.util.Scanner;
 public class HighLow {
     public static void main(String[] args) {
         int house = houseGuess();
-        int user = getInteger();
 
-        highLow(house, user);
+        highLow(house, getInteger(), 1, 10);
     }
 
     public static int getInteger() {
@@ -33,15 +32,15 @@ public class HighLow {
         return house;
     }
 
-    public static void highLow(int x, int y) {
+    public static void highLow(int x, int y, int z, int limit) {
         if (x > y) {
-            System.out.println("HIGHER");
-            highLow(x, getInteger());
+            System.out.println("HIGHER " + (limit - 1) + " guesses left. \n");
+            highLow(x, getInteger(), z + 1, limit - 1);
         } else if (x < y) {
-            System.out.println("LOWER");
-            highLow(x, getInteger());
+            System.out.println("LOWER " + (limit - 1) + " guesses left. \n");
+            highLow(x, getInteger(), z + 1, limit - 1);
         } else {
-            System.out.println("GOOD GUESS");
+            System.out.println("CONGRATS\n" + "That took " + z + " guesses");
         }
 
     }
