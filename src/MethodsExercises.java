@@ -5,24 +5,24 @@ public class MethodsExercises {
     public static void main(String[] args) {
         Scanner sc = new Scanner (System.in);
 //      Ex 1 Outputs
-//        System.out.println("Add values: " + addCalc(8, 2));
-//        System.out.println("Subtract values: " + subCalc(8, 2));
-//        System.out.println("Multiply values: " + multCalc(5, 2));
-//        System.out.println("Multiply values (Loop): " + multCalcLoop(4, 3));
-//        System.out.println("Multiply values (Rec): " + multCalcRec(4, 5));
-//        System.out.println("Divide values: " + divCalc(8, 2));
-//        System.out.println("Modulus values: " + modCalc(8, 2));
+        System.out.println("Add values: " + addCalc(8, 2));
+        System.out.println("Subtract values: " + subCalc(8, 2));
+        System.out.println("Multiply values: " + multCalc(5, 2));
+        System.out.println("Multiply values (Loop): " + multCalcLoop(4, 3));
+        System.out.println("Multiply values (Rec): " + multCalcRec(4, 5));
+        System.out.println("Divide values: " + divCalc(8, 2));
+        System.out.println("Modulus values: " + modCalc(8, 2));
 
 //      Ex 2 Outputs
-//        System.out.println("Int-Range: Enter a number between 1 and 10:");
-//        int userInput = getInteger(1, 10);
-//        System.out.println("Congratulations, " + userInput + " is in range!");
+        System.out.println("Int-Range: Enter a number between 1 and 10:");
+        int userInput = getInteger(1, 10);
+        System.out.println("Congratulations, " + userInput + " is in range!");
 
 //      Ex 3 Outputs
-//        System.out.println("Int-Factor: Enter a number between 1 and 10:");
-//        int userFactorInput = getInteger(1, 10);
-//        long factorNum = getFactor(userFactorInput);
-//        System.out.println("Factorial of " + userFactorInput + " is " + factorNum);
+        System.out.println("Int-Factor: Enter a number between 1 and 10:");
+        int userFactorInput = getInteger(1, 10);
+        long factorNum = getFactor(userFactorInput);
+        System.out.println("Factorial of " + userFactorInput + " is " + factorNum);
 
 //      Ex 4 Outputs
         diceRoller();
