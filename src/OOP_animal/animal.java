@@ -1,5 +1,7 @@
 package OOP_animal;
 
+import OOP_notes_by_rpg.Fighter;
+
 public class animal {
     public static void main(String[] args) {
 //  Constructor: bring owl class to THIS class
@@ -17,9 +19,13 @@ public class animal {
 //  instance variables cannot be directly accessed and can only be accessed
 //  through your getters and setters.
 
-    owl barnowl = new owl();
+    Owl barnowl = new Owl();
     barnowl.setName("Barn Owl");
     barnowl.setSound("meow");
     barnowl.makeNoise();
+
+    Owl snowOwl = new Owl ("Snow Owl", "bark");
+    snowOwl.makeNoise();
+
     }
 }
