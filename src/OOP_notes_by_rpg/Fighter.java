@@ -2,10 +2,14 @@ package OOP_notes_by_rpg;
 
 public class Fighter {
 
+//  Fighter.Attributes
     private String name;
-    private int hitPoints = 20;
-    private int maxDamage = 45;
+    private int hitPoints = 14;
+    private int maxDamage = 10;
 //                          ^Default values see below and fighter4
+
+
+//  Fighter.METHODS
 
 //  Keep GET/SET Public
 //  CMD+N generate getter and setter
