@@ -46,7 +46,7 @@ public class Input {
         return Integer.parseInt(scanner.next());
     }
 
-    double getDouble(double min, double max) {
+    public double getDouble(double min, double max) {
         System.out.printf("Input a number between %.2f  and %.2f\n", min, max);
         String inputNum = scanner.next();
         boolean inRange = Double.parseDouble(inputNum) < max && Double.parseDouble(inputNum) > min;
@@ -59,7 +59,7 @@ public class Input {
 
         return Double.parseDouble(inputNum);
     }
-    double getDouble() {
+    public double getDouble() {
         System.out.println("Input a number:");
         return Double.parseDouble(scanner.next());
     }
