@@ -25,7 +25,8 @@ public class RPG {
         Fighter fighter4 = new Fighter ("Therion");
         fighter4.printStats();
 
-        int d20roll = D20.rolld20();
+//  Static
+        int d20roll = Dice.roll(2, 20);
         System.out.println(d20roll);
     }
 }
