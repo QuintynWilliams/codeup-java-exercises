@@ -25,4 +25,19 @@ public class Owl {
         this.name = name;
         this.sound = sound;
     }
+
+    public static String randomQuote() {
+        int getQuote = (int)(Math.random()*4)+1;
+        String quote = "";
+        if (getQuote == 1) {
+            quote = "Meow";
+        } else if (getQuote == 2) {
+            quote = "Bark";
+        } else if (getQuote == 3) {
+            quote = "Screech";
+        } else if (getQuote == 4) {
+            quote = "Hi";
+        }
+        return quote;
+    }
 }

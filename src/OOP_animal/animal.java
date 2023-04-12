@@ -19,13 +19,23 @@ public class animal {
 //  instance variables cannot be directly accessed and can only be accessed
 //  through your getters and setters.
 
+// TODO: Create a Quote class with a RandomQuote method. The method should
+//  generate a random number from 1 to 4. Depending on the result, the method
+//  should return a different quote. Now edit your animal class from the
+//  previous exercise so instead of an appropriate animal noise it makes a
+//  random quote. Test your animal class and verify that it now emits a random
+//  quote instead of an animal-appropriate noise.
+
     Owl barnowl = new Owl();
     barnowl.setName("Barn Owl");
-    barnowl.setSound("meow");
+    barnowl.setSound("scrraaawwww");
     barnowl.makeNoise();
 
-    Owl snowOwl = new Owl ("Snow Owl", "bark");
+    Owl snowOwl = new Owl ("Snow Owl", "kaku kaku");
     snowOwl.makeNoise();
+
+    String random = barnowl.randomQuote();
+    System.out.println(random);
 
     }
 }
