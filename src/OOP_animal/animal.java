@@ -1,7 +1,5 @@
 package OOP_animal;
 
-import OOP_notes_by_rpg.Fighter;
-
 public class animal {
     public static void main(String[] args) {
 //  Constructor: bring owl class to THIS class
@@ -34,7 +32,7 @@ public class animal {
     Owl snowOwl = new Owl ("Snow Owl", "kaku kaku");
     snowOwl.makeNoise();
 
-    String random = barnowl.randomQuote();
+    String random = Owl.randomQuote();
     System.out.println(random);
 
     }
