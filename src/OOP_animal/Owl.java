@@ -15,7 +15,7 @@ public class Owl {
          this.sound = sound;
     }
     public void makeNoise() {
-        System.out.printf("%s goes %s.\n", name, sound);
+        System.out.printf("%s says, \"%s.\"\n", name, sound);
     }
 
     public Owl () {
@@ -28,16 +28,13 @@ public class Owl {
 
     public static String randomQuote() {
         int getQuote = (int)(Math.random()*4)+1;
-        String quote = "";
-        if (getQuote == 1) {
-            quote = "Meow";
-        } else if (getQuote == 2) {
-            quote = "Bark";
-        } else if (getQuote == 3) {
-            quote = "Screech";
-        } else if (getQuote == 4) {
-            quote = "Hi";
-        }
-        return quote;
+        return switch (getQuote) {
+            case 1 -> "Opportunities don't happen, you create them";
+            case 2 -> "It is never too late to be what you might have been";
+            case 3 -> "The road to success and to failure are the same path";
+            case 4 -> "Don’t let yesterday take up too much of today";
+            default -> "--silence--";
+        };
     }
+
 }
