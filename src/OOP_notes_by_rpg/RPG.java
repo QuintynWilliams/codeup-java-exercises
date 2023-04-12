@@ -27,6 +27,10 @@ public class RPG {
 
 //  Static
         int d20roll = Dice.roll(2, 20);
-        System.out.println(d20roll);
+        System.out.println("You rolled: " + d20roll);
+
+//  Static global variable, inc on each Fighter constructor
+        System.out.println("No. of Fighters: " + Fighter.totalFighters);
     }
+
 }

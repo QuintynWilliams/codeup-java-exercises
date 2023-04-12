@@ -7,7 +7,11 @@ public class Fighter {
     private int hitPoints = 14;
     private int maxDamage = 10;
 //                          ^Default values see below and fighter4
+//    Static Method unchangeable and apply to ALL objects of the Class Fighter
+    public static int armorClass = 15;
 
+//  All fighters have access >
+    public static int totalFighters;
 
 //  Fighter.METHODS
 
@@ -16,23 +20,26 @@ public class Fighter {
     public void setName(String name) {
         this.name = name;
     }
-
     public void setHitPoints(int hp) {
         this.hitPoints = hp;
     }
-
     public void setMaxDamage(int dam) {
         this.maxDamage = dam;
     }
-
     public void printStats() {
-        System.out.printf("%s has %d hp and does %d pts of max damage.\n", name, hitPoints, maxDamage);
+        System.out.printf("""
+               == %s \s
+                   HP  |  DMG  |  Armor  \s
+                   %d     %d       %d    \s
+                   
+                """,
+                name, hitPoints, maxDamage, armorClass);
     }
 
 //  Overloaded Constructor, no default constructor
 // YOU must provide all Constructors && no arg constructor
     public Fighter () {
-
+        totalFighters++;
     }
     public Fighter(String name, int hitPoints, int maxDamage) {
         this.name = name;
