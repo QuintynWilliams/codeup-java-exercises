@@ -1,11 +1,11 @@
 package OOP_animal;
 
 public class owl {
-
+//  POJO: Plain Old Java Object
     private String name;
     private String sound;
 
-//    CMD+N generate getter and settter
+//    CMD+N generate getter and setter
     public void setName(String name) {
          this.name = name;
     }

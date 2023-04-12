@@ -13,6 +13,10 @@ public class animal {
 //   the makeNoise method should be name + " goes " + sound. Create a test
 //   class with a main method to instantiate and test your class code.
 
+// TODO: Encapsulate your animal class. Use your test class to verify that your
+//  instance variables cannot be directly accessed and can only be accessed
+//  through your getters and setters.
+
     owl barnowl = new owl();
     barnowl.setName("Barn Owl");
     barnowl.setSound("meow");
