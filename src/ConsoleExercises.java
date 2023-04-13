@@ -51,6 +51,7 @@ public class ConsoleExercises {
         System.out.println("Room Area: " + (lengthRoom * widthRoom));
         System.out.println("Room Volume: " + (lengthRoom * widthRoom * heightRoom));
 
+
     }
 
 }
