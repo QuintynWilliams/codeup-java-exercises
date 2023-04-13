@@ -22,6 +22,13 @@ public class Person {
         System.out.println(this.name + "says, \"Hello\"");
     }
 
+    public void addPerson (Person single) {
+
+    }
+    public void addPerson(Person[] group) {
+        this.name = name;
+    }
+
     public static void main(String[] args) {
 
 /*
