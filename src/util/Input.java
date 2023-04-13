@@ -12,13 +12,11 @@ public class Input {
     }
 
     public String getString() {
-        System.out.println("Input a string");
         return scanner.next();
     }
 
 
     public boolean yesNo() {
-        System.out.println("Input a YES||NO response");
         String input = scanner.next();
         if (input.startsWith("y")) {
             hold = true;

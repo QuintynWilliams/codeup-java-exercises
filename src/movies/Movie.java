@@ -74,8 +74,13 @@ public class Movie {
             newMovies[i] = new Movie(oldMovies[i].getName(), oldMovies[i].getCat());
         }
 
-        return newMovies;
+        String title = "";
 
+        for (Movie n : newMovies) {
+            title += n.getName() + " -- " + n.getCat() + " \n";
+        }
+
+        return newMovies;
     }
 
     public static int getUserInput() {
@@ -90,6 +95,7 @@ public class Movie {
                 3 - view movies in the drama category
                 4 - view movies in the horror category
                 5 - view movies in the scifi category
+                6 - add movie
                                 
                 Enter your choice:  """);
 
@@ -97,7 +103,6 @@ public class Movie {
 
         return userOpt;
     }
-
     public static String getTitleInput () {
         Input user = new Input();
 
@@ -146,8 +151,8 @@ public class Movie {
             System.out.println(getByCats("scifi"));
             movieApplication(getUserInput());
         } else if (input == 6) {
-            setMovie(getTitleInput(),getCatInput());
 //          MOVIE SET FUNCTION
+            System.out.println(setMovie(getTitleInput(),getCatInput()));
             movieApplication(getUserInput());
         }
     }
