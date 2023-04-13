@@ -1,3 +1,5 @@
+import java.lang.reflect.Array;
+
 public class Person {
 
     private String name;
@@ -20,13 +22,6 @@ public class Person {
     public void sayHello(){
     //TODO: print a message to the console using the person's name
         System.out.println(this.name + "says, \"Hello\"");
-    }
-
-    public void addPerson (Person single) {
-
-    }
-    public void addPerson(Person[] group) {
-        this.name = name;
     }
 
     public static void main(String[] args) {

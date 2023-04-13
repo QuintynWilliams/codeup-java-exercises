@@ -1,6 +1,27 @@
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class ArraysExercises {
+
+
+//    Person bob = new Person("Bob");
+//    Person frank = new Person("Frank");
+//    Person joe = new Person("Joe");
+//    Person[] people = {bob, frank, joe};
+//        for (Person n : people) {
+//        System.out.println(n.getName());
+//    }
+    public static Person[] addPerson(Person single, Person[] group) {
+        Person[] newGroup;
+        newGroup = new Person[group.length + 1];
+
+        for (int i = 0; i < group.length; i++) {
+            newGroup[i] = new Person(group[i].getName());
+        }
+        newGroup[3] = new Person(single.getName());
+
+        return newGroup;
+    }
 
     public static void main(String[] args) {
 
@@ -24,20 +45,10 @@ public class ArraysExercises {
     objects, as well as a single person object to add to the passed array. It
     should return an array whose length is 1 greater than the passed array, with
     the passed person object at the end of the array. */
-
-/*
-     public Fighter () {
-        totalFighters++;
-    }
-    public Fighter(String name, int hitPoints, int maxDamage) {
-        this.name = name;
-        this.hitPoints = hitPoints;
-        this.maxDamage = maxDamage;
-    }
-
-    int d20roll = Dice.roll(2, 20);
-    System.out.println("You rolled: " + d20roll);
- */
+        Person[] addedgroup = ArraysExercises.addPerson(bob, people);
+        for (Person n : addedgroup) {
+            System.out.println(n.getName());
+        }
 
     }
 
