@@ -37,6 +37,47 @@ public class Movie {
         return category;
     }
 
+    public static String getAll() {
+        Movie[] bob = MoviesArray.findAll();
+        String title = "";
+
+        for (Movie n : bob) {
+            title += n.getName() + " -- " + n.getCat() + " \n";
+        }
+
+        return title;
+    }
+    public static String getByCats(String genre) {
+        Movie[] bob = MoviesArray.findAll();
+        String title = "";
+
+        for (Movie n : bob) {
+            if (n.getCat().equals(genre)) {
+                title += n.getName() + " -- " + n.getCat() + " \n";
+            }
+        }
+
+        return title;
+
+    }
+
+    public static Movie[] setMovie(String title, String cat) {
+
+        Movie[] userMovie = new Movie[]{new Movie(title, cat)};
+        Movie[] oldMovies = MoviesArray.findAll();
+
+        int oldLength = oldMovies.length;
+
+        Movie[] newMovies = new Movie[oldLength + 1];
+
+        for (int i = 0; i < oldLength; i++) {
+            newMovies[i] = new Movie(oldMovies[i].getName(), oldMovies[i].getCat());
+        }
+
+        return newMovies;
+
+    }
+
     public static int getUserInput() {
         Input user = new Input();
 
@@ -57,49 +98,57 @@ public class Movie {
         return userOpt;
     }
 
-    public static String getAll() {
-        Movie[] bob = MoviesArray.findAll();
-        String title = "";
+    public static String getTitleInput () {
+        Input user = new Input();
 
-        for (Movie n : bob) {
-            title += n.getName() + " -- " + n.getCat() + " \n";
-        }
+        System.out.printf("""
+                Enter Movie Title:
+                """);
 
-        return title;
+        String userTitle = user.getString();
+
+        return userTitle;
     }
+    public static String getCatInput () {
+        Input user = new Input();
 
-    public static String getByCats(String genre) {
-        Movie[] bob = MoviesArray.findAll();
-        String title = "";
+        System.out.printf("""
+                Select Movie category:
+                    animated
+                    drama
+                    horror
+                    scifi
+                    other
+                                
+                Type your choice:  """);
 
-        for (Movie n : bob) {
-            if (n.getCat().equals(genre)) {
-                title += n.getName() + " -- " + n.getCat() + " \n";
-            }
-        }
+        String userCat = user.getString();
 
-        return title;
-
+        return userCat.toLowerCase();
     }
 
     public static void movieApplication (int input) {
         if (input == 0) {
             System.out.println("Later");
         } else if (input == 1) {
-            System.out.println(Movie.getAll());
-            Movie.movieApplication(Movie.getUserInput());
+            System.out.println(getAll());
+            movieApplication(getUserInput());
         } else if (input == 2) {
-            System.out.println(Movie.getByCats("animated"));
-            Movie.movieApplication(Movie.getUserInput());
+            System.out.println(getByCats("animated"));
+            movieApplication(getUserInput());
         } else if (input == 3) {
-            System.out.println(Movie.getByCats("drama"));
-            Movie.movieApplication(Movie.getUserInput());
+            System.out.println(getByCats("drama"));
+            movieApplication(getUserInput());
         } else if (input == 4) {
-            System.out.println(Movie.getByCats("horror"));
-            Movie.movieApplication(Movie.getUserInput());
+            System.out.println(getByCats("horror"));
+            movieApplication(getUserInput());
         } else if (input == 5) {
-            System.out.println(Movie.getByCats("scifi"));
-            Movie.movieApplication(Movie.getUserInput());
+            System.out.println(getByCats("scifi"));
+            movieApplication(getUserInput());
+        } else if (input == 6) {
+            setMovie(getTitleInput(),getCatInput());
+//          MOVIE SET FUNCTION
+            movieApplication(getUserInput());
         }
     }
 
