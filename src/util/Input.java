@@ -76,4 +76,5 @@ public class Input {
         System.out.println(testString.getDouble());
     }
 
+
 }
