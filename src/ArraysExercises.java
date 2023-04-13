@@ -3,7 +3,6 @@ import java.util.Arrays;
 
 public class ArraysExercises {
 
-
 //    Person bob = new Person("Bob");
 //    Person frank = new Person("Frank");
 //    Person joe = new Person("Joe");

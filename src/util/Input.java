@@ -41,8 +41,8 @@ public class Input {
 
         return Integer.parseInt(inputNum);
     }
+
     public int getInt() {
-        System.out.println("Input a number:");
         return Integer.parseInt(scanner.next());
     }
 
