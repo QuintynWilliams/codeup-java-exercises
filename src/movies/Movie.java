@@ -1,14 +1,13 @@
 package movies;
 
-import OOP_notes_by_rpg.Monster;
 import util.Input;
 
 import java.util.Arrays;
 
 public class Movie {
 
-    private String name;
-    private String category;
+    private final String name;
+    private final String category;
 
 /* TODO: Constructor that sets both of these.*/
 
@@ -62,7 +61,7 @@ public class Movie {
     public static int getUserInput() {
         Input user = new Input();
 
-        System.out.printf("""
+        System.out.print("""
                 What would you like to do?
                                 
                 0 - exit
@@ -73,27 +72,23 @@ public class Movie {
                 5 - view movies in the scifi category
                 6 - add movie
                                 
-                Enter your choice:  """);
+                Enter your choice:""");
 
-        int userOpt = user.getInt();
-
-        return userOpt;
+        return user.getInt();
     }
     public static String getTitleInput () {
         Input user = new Input();
 
-        System.out.printf("""
+        System.out.print("""
                 Enter Movie Title:
                 """);
 
-        String userTitle = user.getString();
-
-        return userTitle;
+        return user.getString();
     }
     public static String getCatInput () {
         Input user = new Input();
 
-        System.out.printf("""
+        System.out.print("""
                 Select Movie category:
                     animated
                     drama
@@ -101,7 +96,7 @@ public class Movie {
                     scifi
                     other
                                 
-                Type your choice:  """);
+                Type your choice:""");
 
         String userCat = user.getString();
 
