@@ -1,5 +1,6 @@
 package movies;
 
+import OOP_notes_by_rpg.Monster;
 import util.Input;
 
 import java.util.Arrays;
@@ -26,7 +27,6 @@ public class Movie {
 //    public void setCategory(String name) {
 //        this.name = name;
 //    }
-
 //    public getMovies() {
 //        return MoviesAr;
 //    }
@@ -37,11 +37,10 @@ public class Movie {
         return category;
     }
 
-    public static String getAll() {
-        Movie[] bob = MoviesArray.findAll();
+    public static String getAll(Movie[] list) {
         String title = "";
 
-        for (Movie n : bob) {
+        for (Movie n : list) {
             title += n.getName() + " -- " + n.getCat() + " \n";
         }
 
@@ -61,27 +60,17 @@ public class Movie {
 
     }
 
-//    public static Movie[] setMovie(String title, String cat) {
-//
-//        Movie[] userMovie = new Movie[]{new Movie(title, cat)};
-//        Movie[] oldMovies = MoviesArray.findAll();
-//
-//        int oldLength = oldMovies.length;
-//
-//        Movie[] newMovies = new Movie[oldLength + 1];
-//
-//        for (int i = 0; i < oldLength; i++) {
-//            newMovies[i] = new Movie(oldMovies[i].getName(), oldMovies[i].getCat());
-//        }
-//
-//        String title = "";
-//
-//        for (Movie n : newMovies) {
-//            title += n.getName() + " -- " + n.getCat() + " \n";
-//        }
-//
-//        return newMovies;
-//    }
+
+    public static Movie[] addMovie(Movie[] movieArray, String title, String cat) {
+        Movie newMovie = new Movie(title, cat);
+
+//      Creates a new array that is empty, FOR LOOP each of old values to OG index
+//      Monster[] newMonsterArray = new Monster[monstersArray.length+1];
+//        OR, creates new array mirrored from OG && can increase length
+        Movie[] newMonsterArray = Arrays.copyOf(movieArray, movieArray.length+1);
+        newMonsterArray[newMonsterArray.length -1] = newMovie;
+        return newMonsterArray;
+    }
 
     public static int getUserInput() {
         Input user = new Input();
@@ -136,7 +125,7 @@ public class Movie {
         if (input == 0) {
             System.out.println("Later");
         } else if (input == 1) {
-            System.out.println(getAll());
+            System.out.println(getAll(MoviesArray.findAll()));
             movieApplication(getUserInput());
         } else if (input == 2) {
             System.out.println(getByCats("animated"));
@@ -152,7 +141,8 @@ public class Movie {
             movieApplication(getUserInput());
         } else if (input == 6) {
 //          MOVIE SET FUNCTION
-//            System.out.println(setMovie(getTitleInput(),getCatInput()));
+            Movie[] updateList = addMovie(MoviesArray.findAll(), getTitleInput(),getCatInput());
+            System.out.println(getAll(updateList));
             movieApplication(getUserInput());
         }
     }
