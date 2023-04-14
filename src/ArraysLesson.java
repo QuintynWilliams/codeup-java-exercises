@@ -24,10 +24,10 @@ public class ArraysLesson {
 //        System.out.printf("Array: %d",numbers[2]);
 //  Array Loops
 //      Enhanced for loop when you dont need the INDEX
-//        for (int number : numbers) {
-//            System.out.printf("Num at index: %d%n", number);
-////          numbers[3] = 0, as a DEFAULT VALUE (was not declared)
-//        }
+        for (int number : numbers) {
+            System.out.printf("Num at index: %d%n", number);
+//          numbers[3] = 0, as a DEFAULT VALUE (was not declared)
+        }
 
 //        System.out.printf("%nArray Initializer: %d",moreNumbers[2]);
 //      Trad For Loop
@@ -44,14 +44,42 @@ public class ArraysLesson {
 
         Monster[] monsters = {orc, ogre, blueDragon};
 
-        for (Monster monster : monsters) {
-            System.out.printf("""
-                   %s \s
-                   Armor |  HP  |  DMG  \s 
-                    %d      %d     %d   %n
-                    """, monster.getName(), monster.getArmorClass(), monster.getHitPoints(), monster.getDamage());
+//        for (Monster monster : monsters) {
+//            System.out.printf("""
+//                   %s
+//                   HP: %d
+//                   Armor  |  DMG
+//                    %d       %d%n
+//                   """, monster.getName(), monster.getHitPoints(), monster.getArmorClass(),
+//                    monster.getDamage());
+//        }
+
+//      Sorting Arrays, STATIC METHOD
+//        https://docs.oracle.com/javase/7/docs/api/java/util/Arrays.html
+        Arrays.sort(numbers);
+        System.out.println("\n POST SORT...");
+        for (int number : numbers) {
+            System.out.printf("Num at index: %d%n", number);
         }
 
+        Monster whiteGhoul = new Monster("White Ghoul", 9, 12, 15);
+
+//      Added a new object to array, CREATES A NEW ARRAY COMPLETELY
+        Monster[] addedMonster = ArraysLesson.addMonster(monsters, whiteGhoul);
+
+        for (Monster n : addedMonster) {
+            System.out.printf("New Monsters: %s%n", n.getName());
+        };
+
+    }
+
+    public static Monster[] addMonster(Monster[] monstersArray, Monster newMonster) {
+//      Creates a new array that is empty, FOR LOOP each of old values to OG index
+//      Monster[] newMonsterArray = new Monster[monstersArray.length+1];
+//        OR, creates new array mirrored from OG && can increase length
+        Monster[] newMonsterArray = Arrays.copyOf(monstersArray, monstersArray.length+1);
+        newMonsterArray[newMonsterArray.length -1] = newMonster;
+        return newMonsterArray;
     }
 
 }
