@@ -21,15 +21,6 @@ public class Movie {
         this.category = category;
     }
 
-//    public void setName(String name) {
-//        this.name = name;
-//    }
-//    public void setCategory(String name) {
-//        this.name = name;
-//    }
-//    public getMovies() {
-//        return MoviesAr;
-//    }
     public String getName(){
         return name;
     }
@@ -63,10 +54,6 @@ public class Movie {
 
     public static Movie[] addMovie(Movie[] movieArray, String title, String cat) {
         Movie newMovie = new Movie(title, cat);
-
-//      Creates a new array that is empty, FOR LOOP each of old values to OG index
-//      Monster[] newMonsterArray = new Monster[monstersArray.length+1];
-//        OR, creates new array mirrored from OG && can increase length
         Movie[] newMonsterArray = Arrays.copyOf(movieArray, movieArray.length+1);
         newMonsterArray[newMonsterArray.length -1] = newMovie;
         return newMonsterArray;
