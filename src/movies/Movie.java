@@ -61,27 +61,27 @@ public class Movie {
 
     }
 
-    public static Movie[] setMovie(String title, String cat) {
-
-        Movie[] userMovie = new Movie[]{new Movie(title, cat)};
-        Movie[] oldMovies = MoviesArray.findAll();
-
-        int oldLength = oldMovies.length;
-
-        Movie[] newMovies = new Movie[oldLength + 1];
-
-        for (int i = 0; i < oldLength; i++) {
-            newMovies[i] = new Movie(oldMovies[i].getName(), oldMovies[i].getCat());
-        }
-
-        String title = "";
-
-        for (Movie n : newMovies) {
-            title += n.getName() + " -- " + n.getCat() + " \n";
-        }
-
-        return newMovies;
-    }
+//    public static Movie[] setMovie(String title, String cat) {
+//
+//        Movie[] userMovie = new Movie[]{new Movie(title, cat)};
+//        Movie[] oldMovies = MoviesArray.findAll();
+//
+//        int oldLength = oldMovies.length;
+//
+//        Movie[] newMovies = new Movie[oldLength + 1];
+//
+//        for (int i = 0; i < oldLength; i++) {
+//            newMovies[i] = new Movie(oldMovies[i].getName(), oldMovies[i].getCat());
+//        }
+//
+//        String title = "";
+//
+//        for (Movie n : newMovies) {
+//            title += n.getName() + " -- " + n.getCat() + " \n";
+//        }
+//
+//        return newMovies;
+//    }
 
     public static int getUserInput() {
         Input user = new Input();
@@ -152,7 +152,7 @@ public class Movie {
             movieApplication(getUserInput());
         } else if (input == 6) {
 //          MOVIE SET FUNCTION
-            System.out.println(setMovie(getTitleInput(),getCatInput()));
+//            System.out.println(setMovie(getTitleInput(),getCatInput()));
             movieApplication(getUserInput());
         }
     }
