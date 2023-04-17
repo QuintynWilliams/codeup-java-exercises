@@ -21,50 +21,43 @@ public class Vehicle {
         this.name = name;
     }
     public void makeNoise() {
-        System.out.println("vroom");
+        System.out.println(this.name + ": vroom");
     }
     public void dashLight() {
-        System.out.println("Check Engine light: ON");
-    }
-
-//  Here for Brevity
-    public static void main(String[] args) {
-//      constructs a new Vehicle class, gets the default methods
-        Vehicle sumCar = new Vehicle();
-        sumCar.makeNoise();
-
-//      constrcuts a new Motorcycle SUB class, with a unique method
-//      makeNoise is an OVERride of VEHICLE's method, not entirely unique
-        Motorcycle harleyDave = new Motorcycle();
-        harleyDave.makeNoise();
-
-//      SUBClass still has access to the SUPERClass methods
-        harleyDave.dashLight();
-
+        System.out.println(this.name + ": Check Engine ON");
     }
 
 }
 
+
 class Motorcycle extends Vehicle {
+//    TODO: Create a method in the subclass of the Vehicle class that overrides
+//     the superclass makeNoise method.
+
     @Override
     public void makeNoise() {
-        System.out.println("bu bub bu bub ub b");;
+        System.out.println(this.getName() + ": bu bub bu bub ub b");
+    }
+
+//    TODO: Create a breakingDownNoise() method in the subclass. It should call
+//     super.makeNoise() and then add a second sout that adds a second noise
+//     after the first one.
+
+    public void breakingDownNoise() {
+        super.makeNoise();
+        System.out.println(this.getName() + ": rrRRRR *pop*");
     }
 }
 
 class Car extends Vehicle {
     @Override
     public void makeNoise() {
-        System.out.println("reeeeee");;
+        System.out.println(this.getName() + ": reeeeee");
+    }
+
+    public void breakingDownNoise() {
+        System.out.println(this.getName() + ": plop plop plop");
     }
 }
-
-class Truck extends Vehicle {
-    @Override
-    public void makeNoise() {
-        System.out.println("Grgrgrggr");;
-    }
-}
-
 
 
