@@ -12,12 +12,6 @@ public class Vehicle {
 //     inherited method works and the inherited name property is assignable on
 //     the subclass.
 
-    public static void main(String[] args) {
-        Motorcycle bob = new Motorcycle();
-        bob.makeNoise();
-
-    }
-
     private String name;
 
     public String getName() {
@@ -26,9 +20,27 @@ public class Vehicle {
     public void setName(String name) {
         this.name = name;
     }
-
-    public void makeNoise () {
+    public void makeNoise() {
         System.out.println("vroom");
+    }
+    public void dashLight() {
+        System.out.println("Check Engine light: ON");
+    }
+
+//  Here for Brevity
+    public static void main(String[] args) {
+//      constructs a new Vehicle class, gets the default methods
+        Vehicle sumCar = new Vehicle();
+        sumCar.makeNoise();
+
+//      constrcuts a new Motorcycle SUB class, with a unique method
+//      makeNoise is an OVERride of VEHICLE's method, not entirely unique
+        Motorcycle harleyDave = new Motorcycle();
+        harleyDave.makeNoise();
+
+//      SUBClass still has access to the SUPERClass methods
+        harleyDave.dashLight();
+
     }
 
 }

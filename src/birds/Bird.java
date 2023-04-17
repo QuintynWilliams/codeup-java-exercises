@@ -1,7 +1,6 @@
 package birds;
 
 public class Bird {
-
     private String name;
 
 //  GET && SET
@@ -24,20 +23,12 @@ public class Bird {
 }
 
 class Quaker extends Bird {
-    public String name;
-
-    @Override
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public void setName(String name) {
-        this.name = name;
-    }
-
+//  SUBc uses the BIRD SUPERc to setName .˙. calls to name via getName
+//  will be the value set to the Quaker SUBc
     public void makeNoise () {
-        System.out.printf("%s: *ca-caw*%n", this.name);
+//      SUPERc *noise*
+        super.makeNoise();
+//      SUBc *noise*
+        System.out.printf("%s: *ca-caw*%n", this.getName());
     }
-
 }
