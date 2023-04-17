@@ -1,5 +1,6 @@
 public class Garage {
-    public Vehicle[] vehicles;
+//  default && protected enables access only by within the related classes
+    protected Vehicle[] vehicles;
 
     public Vehicle[] getVehicles() {
         return vehicles;

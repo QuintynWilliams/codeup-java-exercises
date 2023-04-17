@@ -31,6 +31,8 @@ public class Bird {
     }
 }
 
+
+//Subclasses of Bird
 class Quaker extends Bird {
 //  SUBc uses the BIRD SUPERc to setName .˙. calls to name via getName
 //  will be the value set to the Quaker SUBc
@@ -45,6 +47,7 @@ class Quaker extends Bird {
     }
 }
 
+//Subclasses of Bird
 class Finch extends Bird {
     //  SUBc uses the BIRD SUPERc to setName .˙. calls to name via getName
 //  will be the value set to the Quaker SUBc
@@ -59,6 +62,7 @@ class Finch extends Bird {
     }
 }
 
+//Subclasses of Bird
 class Goose extends Bird {
     //  SUBc uses the BIRD SUPERc to setName .˙. calls to name via getName
 //  will be the value set to the Quaker SUBc

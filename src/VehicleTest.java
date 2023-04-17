@@ -28,8 +28,11 @@ public class VehicleTest {
 //        carLot[2] = new Vehicle();
 //        carLot[2].setName("Oregon Wagon");
 
+//      New instance of Garage
         Garage garage = new Garage();
+//      New object for the Garage Class
         garage.vehicles = new Vehicle[3];
+//      Set object values for Garage with Vehicles methods
         garage.vehicles[0] = new Motorcycle();
         garage.vehicles[0].setName("Two-Wheel Tom");
         garage.vehicles[1] = new Car();
