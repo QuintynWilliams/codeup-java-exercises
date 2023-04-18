@@ -17,13 +17,25 @@ public class ShapesTest {
         System.out.println(box2.getArea());
 //      25
 
-        Measurable myShape = new Rectangle(6, 5);
+        Measurable myShape = new Rectangle(5, 9);
+//        DNE in Measurable, instance defines variable .˙. not executable
+//        System.out.println(myShape.getLength());
+//        System.out.println(myShape.getWidth());
         System.out.println(myShape.getPerimeter());
+//      28.0
         System.out.println(myShape.getArea());
+//      45.0
 
         Measurable myShape2 = new Square(7);
+//        DNE in Measurable, instance defines variable .˙. not executable
+//        System.out.println(myShape2.getSide());
         System.out.println(myShape2.getPerimeter());
+//      28.0
         System.out.println(myShape2.getArea());
+//      49.0
     }
+
+
+
 
 }
