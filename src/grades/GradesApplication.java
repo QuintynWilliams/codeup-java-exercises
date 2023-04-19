@@ -1,7 +1,5 @@
 package grades;
 
-import OOP_notes_by_rpg.Monster;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -34,10 +32,18 @@ public class GradesApplication {
                 entry("downW/rick_ness", rick)
         );
 
+//  TODO: Print the list of GitHub usernames out to the console
+//    Ask the user which student they would like to see more info
+//    User should enter a GitHub username (i.e. one of the keys in your map).
+//      If NO match mapKEY match: print "no users with that username"
+//      If match: display name and grades.
+//    Ask to continue || Exit
+
         students.forEach((name, monster) -> {
             System.out.printf("%s's grade avg: %f. %n", name, monster.getAvgGrade());
         });
 
+//        Student.gradeCLI(Student.getInput(), students);
 
 
     }

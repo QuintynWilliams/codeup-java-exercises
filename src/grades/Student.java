@@ -1,6 +1,7 @@
 package grades;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Student {
 
@@ -18,8 +19,8 @@ public class Student {
     public ArrayList<Integer> getGrade() {
         return grade;
     }
-    public void addGrade(ArrayList<Integer> grade) {
-        this.grade = grade;
+    public void addGrade(int grade) {
+        this.grade.add(grade);
     }
 
 //  METHODS
@@ -34,6 +35,15 @@ public class Student {
         return total / numOfGrades;
 
 }
+    public static String getInput() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Welcome");
+        System.out.println("Here are the GitHub usernames of our students:");
+        return sc.nextLine();
+
+    }
+
+//    public static void gradeCLI(String studGitHub, Map SumUser) {}
 
 //  CONSTRUCTOR
     public Student() {}
