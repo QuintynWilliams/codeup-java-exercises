@@ -1,8 +1,5 @@
 package grades;
 
-import OOP_notes_by_rpg.Monster;
-
-import java.security.Key;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -40,28 +37,25 @@ public class Student {
         return total / numOfGrades;
 }
 
-    public static String getInput(Map thing) {
+    public static String getInput(Map<String, Student> thing) {
         Scanner sc = new Scanner(System.in);
         Map<String, Student> studentHash = new HashMap<>(thing);
-        studentHash.forEach((name, student) -> {
-            System.out.printf("| %s |  ", name);
-        });
+        studentHash.forEach((name, student) -> System.out.printf("| %s |  ", name));
         System.out.printf("%nWhat student would you like to see more information on?%n");
         return sc.nextLine();
     }
-    public static void userContinue(Map passedArray) {
+    public static void userContinue(Map<String, Student> passedArray) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Would you like to see another student?");
         String getInput = sc.nextLine();
-        boolean getInfo = getInput.equalsIgnoreCase("Y");
 
-        while (getInfo == true) {
+        while (getInput.equalsIgnoreCase("Y")) {
             gradeCLI(passedArray);
         }
 
         System.out.println("Goodbye, and have a wonderful day!");
     }
-    public static void gradeCLI(Map placeholder) {
+    public static void gradeCLI(Map<String, Student> placeholder) {
         String userSearch = Student.getInput(placeholder);
         Map<String, Student> studentHash = new HashMap<>(placeholder);
         if (placeholder.containsKey(userSearch)) {
@@ -74,12 +68,11 @@ public class Student {
                     studentHash.get(userSearch).getAvgGrade());
             userContinue(placeholder);
         } else if (userSearch.equalsIgnoreCase("all")) {
-            studentHash.forEach((name, grades) -> {
+            studentHash.forEach((name, grades) ->
                 System.out.printf("""
                             Name: %s - GitHub Username: %s
                             Current Average: %.0f
-                            """,grades.getName() , name, grades.getAvgGrade());
-            });
+                            """,grades.getName() , name, grades.getAvgGrade()));
         } else if (userSearch.equalsIgnoreCase("class")) {
             double total = 0;
             for (Map.Entry<String, Student> studentEntry : studentHash.entrySet()) {
