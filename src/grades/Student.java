@@ -2,6 +2,7 @@ package grades;
 
 import OOP_notes_by_rpg.Monster;
 
+import java.security.Key;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -37,8 +38,8 @@ public class Student {
         }
 
         return total / numOfGrades;
-
 }
+
     public static String getInput(Map thing) {
         Scanner sc = new Scanner(System.in);
         Map<String, Student> studentHash = new HashMap<>(thing);
@@ -62,8 +63,8 @@ public class Student {
     }
     public static void gradeCLI(Map placeholder) {
         String userSearch = Student.getInput(placeholder);
+        Map<String, Student> studentHash = new HashMap<>(placeholder);
         if (placeholder.containsKey(userSearch)) {
-            Map<String, Student> studentHash = new HashMap<>(placeholder);
             System.out.printf("""
                             Name: %s - GitHub Username: %s
                             Current Average: %.0f
@@ -72,7 +73,23 @@ public class Student {
                     userSearch,
                     studentHash.get(userSearch).getAvgGrade());
             userContinue(placeholder);
-        } else {
+        } else if (userSearch.equalsIgnoreCase("all")) {
+            studentHash.forEach((name, grades) -> {
+                System.out.printf("""
+                            Name: %s - GitHub Username: %s
+                            Current Average: %.0f
+                            """,grades.getName() , name, grades.getAvgGrade());
+            });
+        } else if (userSearch.equalsIgnoreCase("class")) {
+            double total = 0;
+            for (Map.Entry<String, Student> studentEntry : studentHash.entrySet()) {
+                total += studentEntry.getValue().getAvgGrade();
+            }
+            double classAvg = total / placeholder.size();
+            System.out.printf("Class Avg: %.0f", classAvg);
+
+        }
+        else {
             System.out.printf("Sorry, no student found with the GitHub username of \"%s\".%n", userSearch);
             userContinue(placeholder);
         }
