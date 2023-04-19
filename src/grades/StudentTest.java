@@ -26,8 +26,10 @@ public class StudentTest {
         students.add(rick);
 
         for (Student peep : students) {
-            System.out.printf("%s has an average of: %f. %n", peep.getName(), peep.getAvgGrade());
+            System.out.printf("%s has an average of: %.0f. %n", peep.getName(), peep.getAvgGrade());
         }
+
+
 
     }
 

@@ -1,6 +1,10 @@
 package grades;
 
+import OOP_notes_by_rpg.Monster;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Student {
@@ -35,15 +39,45 @@ public class Student {
         return total / numOfGrades;
 
 }
-    public static String getInput() {
+    public static String getInput(Map thing) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Welcome");
-        System.out.println("Here are the GitHub usernames of our students:");
+        Map<String, Student> studentHash = new HashMap<>(thing);
+        studentHash.forEach((name, student) -> {
+            System.out.printf("| %s |  ", name);
+        });
+        System.out.printf("%nWhat student would you like to see more information on?%n");
         return sc.nextLine();
+    }
+    public static void userContinue(Map passedArray) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Would you like to see another student?");
+        String getInput = sc.nextLine();
+        boolean getInfo = getInput.equalsIgnoreCase("Y");
+
+        while (getInfo == true) {
+            gradeCLI(passedArray);
+        }
+
+        System.out.println("Goodbye, and have a wonderful day!");
+    }
+    public static void gradeCLI(Map placeholder) {
+        String userSearch = Student.getInput(placeholder);
+        if (placeholder.containsKey(userSearch)) {
+            Map<String, Student> studentHash = new HashMap<>(placeholder);
+            System.out.printf("""
+                            Name: %s - GitHub Username: %s
+                            Current Average: %.0f
+                            """
+                    , studentHash.get(userSearch).getName(),
+                    userSearch,
+                    studentHash.get(userSearch).getAvgGrade());
+            userContinue(placeholder);
+        } else {
+            System.out.printf("Sorry, no student found with the GitHub username of \"%s\".%n", userSearch);
+            userContinue(placeholder);
+        }
 
     }
-
-//    public static void gradeCLI(String studGitHub, Map SumUser) {}
 
 //  CONSTRUCTOR
     public Student() {}

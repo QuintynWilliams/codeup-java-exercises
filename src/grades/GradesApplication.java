@@ -1,7 +1,6 @@
 package grades;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -32,19 +31,21 @@ public class GradesApplication {
                 entry("downW/rick_ness", rick)
         );
 
+
+//        students.forEach((name, grades) -> {
+//            System.out.printf("%s's grade avg: %f. %n", name, grades.getAvgGrade());
+//        });
+
+
 //  TODO: Print the list of GitHub usernames out to the console
 //    Ask the user which student they would like to see more info
 //    User should enter a GitHub username (i.e. one of the keys in your map).
 //      If NO match mapKEY match: print "no users with that username"
 //      If match: display name and grades.
 //    Ask to continue || Exit
-
-        students.forEach((name, monster) -> {
-            System.out.printf("%s's grade avg: %f. %n", name, monster.getAvgGrade());
-        });
-
-//        Student.gradeCLI(Student.getInput(), students);
-
+        System.out.println("Welcome");
+        System.out.println("Here are the GitHub usernames of our students:");
+        Student.gradeCLI(students);
 
     }
 
