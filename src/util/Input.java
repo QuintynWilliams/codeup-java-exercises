@@ -10,12 +10,9 @@ public class Input {
     public Input() {
         this.scanner = new Scanner(System.in);
     }
-
     public String getString() {
-        return scanner.next();
+        return scanner.nextLine();
     }
-
-
     public boolean yesNo() {
         String input = scanner.next();
         if (input.startsWith("y")) {
@@ -25,10 +22,9 @@ public class Input {
         }
         return hold;
     }
-
     public int getInt(int min, int max) {
         System.out.printf("Input a number between %d and %d \n", min, max);
-        String inputNum = scanner.next();
+        String inputNum = getString();
         boolean inRange = Integer.parseInt(inputNum) < max && Integer.parseInt(inputNum) > min;
 
         while (inRange == false) {
@@ -39,14 +35,18 @@ public class Input {
 
         return Integer.parseInt(inputNum);
     }
-
     public int getInt() {
-        return Integer.parseInt(scanner.next());
+        try {
+            String intInput = getString();
+            return Integer.parseInt(intInput);
+        } catch (NumberFormatException e) {
+            System.out.println(e);
+        }
+        return getInt();
     }
-
     public double getDouble(double min, double max) {
         System.out.printf("Input a number between %.2f  and %.2f\n", min, max);
-        String inputNum = scanner.next();
+        String inputNum = getString();
         boolean inRange = Double.parseDouble(inputNum) < max && Double.parseDouble(inputNum) > min;
 
         while (inRange == false) {
@@ -58,21 +58,15 @@ public class Input {
         return Double.parseDouble(inputNum);
     }
     public double getDouble() {
-        System.out.println("Input a number:");
-        return Double.parseDouble(scanner.next());
+
+        try {
+            String dubInput = getString();
+            return Double.parseDouble(dubInput);
+        } catch (NumberFormatException e) {
+            System.out.println(e);
+        }
+        return getDouble();
+
     }
-
-
-    public static void main(String[] args) {
-
-        Input testString = new Input();
-        System.out.println(testString.getString());
-        System.out.println(testString.yesNo());
-        System.out.println(testString.getInt(1,20));
-        System.out.println(testString.getInt());
-        System.out.println(testString.getDouble(1.50,3.75));
-        System.out.println(testString.getDouble());
-    }
-
 
 }
