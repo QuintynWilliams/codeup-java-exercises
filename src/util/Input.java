@@ -1,5 +1,6 @@
 package util;
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Input {
@@ -23,17 +24,18 @@ public class Input {
         return hold;
     }
     public int getInt(int min, int max) {
-        System.out.printf("Input a number between %d and %d \n", min, max);
-        String inputNum = getString();
-        boolean inRange = Integer.parseInt(inputNum) < max && Integer.parseInt(inputNum) > min;
-
-        while (inRange == false) {
+        try {
             System.out.printf("Input a number between %d and %d \n", min, max);
-            inputNum = scanner.next();
-            inRange = Integer.parseInt(inputNum) < max && Integer.parseInt(inputNum) > min;
+            String inputNum = getString();
+            boolean inRange = Integer.parseInt(inputNum) < max && Integer.parseInt(inputNum) > min;
+            if (inRange == true) {
+                return Integer.parseInt(inputNum);
+            }
+        } catch (NumberFormatException e) {
+            System.out.println(e);
         }
 
-        return Integer.parseInt(inputNum);
+        return getInt(min, max);
     }
     public int getInt() {
         try {
@@ -45,17 +47,18 @@ public class Input {
         return getInt();
     }
     public double getDouble(double min, double max) {
-        System.out.printf("Input a number between %.2f  and %.2f\n", min, max);
-        String inputNum = getString();
-        boolean inRange = Double.parseDouble(inputNum) < max && Double.parseDouble(inputNum) > min;
-
-        while (inRange == false) {
-            System.out.printf("Input a number between %.2f  and %.2f\n", min, max);
-            inputNum = scanner.next();
-            inRange = Double.parseDouble(inputNum) < max && Double.parseDouble(inputNum) > min;
+        try {
+            System.out.printf("Input a number between %.2f and %.2f\n", min, max);
+            String inputNum = getString();
+            boolean inRange = Double.parseDouble(inputNum) < max && Double.parseDouble(inputNum) > min;
+            if (inRange == true) {
+                return Double.parseDouble(inputNum);
+            }
+        } catch (NumberFormatException e) {
+            System.out.println(e);
         }
 
-        return Double.parseDouble(inputNum);
+        return getDouble(min, max);
     }
     public double getDouble() {
 
