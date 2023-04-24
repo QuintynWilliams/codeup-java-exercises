@@ -1,7 +1,9 @@
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.Arrays;
 import java.util.List;
 
@@ -45,9 +47,31 @@ public class FileIOLesson {
         }
 //      Files created this way will not be automatically tracked by GIT
 
-//
+//      RERun will remove and re enter the below List
         List <String> groceryList = Arrays.asList("Coffee", "Milk", "Double Stuff Oreos");
-        Files.write(dataFile, groceryList);
+        try {
+            Files.write(dataFile, groceryList);
+            List <String> moreGrocery= Arrays.asList("Peanut Oil", "Flour", "Eggs");
+            Files.write(
+                    dataFile,
+                    moreGrocery,
+//          Third arg for writing to open files
+                    StandardOpenOption.APPEND);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            List<String> groceriesFileList = Files.readAllLines(dataFile);
+            for (int i = 1; i <= groceriesFileList.size(); i+= 1) {
+                System.out.printf("%d: %s %n", i, groceriesFileList.get(i-1));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+
     }
 
 }
