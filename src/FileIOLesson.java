@@ -101,14 +101,14 @@ public class FileIOLesson {
             }
         }
 
-//      Remove an item from the created file
+//      Change an item from the created file
         try {
-
             List<String> lines = Files.readAllLines(dataFile);
             List<String> newList = new ArrayList<>();
             for (String line : lines) {
-                if (line.equals("Double Stuff Oreos")) {
-                    newList.add("Regular Oreos");
+                if (line.equals("eggs")) {
+//                    newList.add("Regular Oreos");
+                    newList.remove("eggs");
                 } else {
                     newList.add(line);
                 }
