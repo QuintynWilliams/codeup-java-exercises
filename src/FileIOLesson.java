@@ -4,6 +4,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -53,9 +54,12 @@ public class FileIOLesson {
             Files.write(dataFile, groceryList);
             List <String> moreGrocery= Arrays.asList("Peanut Oil", "Flour", "Eggs");
             Files.write(
+//                Where
                     dataFile,
+//                What
                     moreGrocery,
 //          Third arg for writing to open files
+//                Do
                     StandardOpenOption.APPEND);
         } catch (IOException e) {
             e.printStackTrace();
@@ -66,6 +70,51 @@ public class FileIOLesson {
             for (int i = 1; i <= groceriesFileList.size(); i+= 1) {
                 System.out.printf("%d: %s %n", i, groceriesFileList.get(i-1));
             }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+//      Run over file for certain item, if T do nothing || if F create it
+        boolean hasPowderedSugar = false;
+        try {
+            List <String> lines = Files.readAllLines(dataFile);
+            for (String line : lines) {
+                if (line.equals("Powdered Sugar")) {
+                    hasPowderedSugar = true;
+                }
+            }
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+
+        if (!hasPowderedSugar) {
+            try {
+                List <String> addPowder= Arrays.asList("Powdered Sugar");
+                Files.write(
+//                  Where
+                      dataFile,
+//                  What
+                      addPowder,
+//                  Do
+                      StandardOpenOption.APPEND);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+//      Remove an item from the created file
+        try {
+
+            List<String> lines = Files.readAllLines(dataFile);
+            List<String> newList = new ArrayList<>();
+            for (String line : lines) {
+                if (line.equals("Double Stuff Oreos")) {
+                    newList.add("Regular Oreos");
+                } else {
+                    newList.add(line);
+                }
+            }
+            Files.write(dataFile, newList);
         } catch (IOException e) {
             e.printStackTrace();
         }
